@@ -1,4 +1,15 @@
 package universite_Paris8.iut.qdev.tp2026.gr15.commons.dtos.entites;
 
 public class JoueurDTO {
+    private String prenom, pseudo,interets;
+    private int langue,anneNaissance, score;
+
+    public JoueurDTO(String prenom, String pseudo, int langue, int anneNaissance, String interets) {
+        this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.langue = langue;
+        this.anneNaissance = anneNaissance;
+        this.interets = interets;
+        this.score = 0;
+    }
 }
