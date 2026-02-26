@@ -8,4 +8,8 @@ public class GestionJoueurDTO {
     public GestionJoueurDTO() {
         joueurs = new ArrayList<>();
     }
+
+    public ArrayList<JoueurDTO> getJoueurs() {
+        return joueurs;
+    }
 }

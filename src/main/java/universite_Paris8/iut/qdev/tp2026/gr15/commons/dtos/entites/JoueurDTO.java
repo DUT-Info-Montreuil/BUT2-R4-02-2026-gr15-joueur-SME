@@ -12,4 +12,28 @@ public class JoueurDTO {
         this.interets = interets;
         this.score = 0;
     }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public String getInterets() {
+        return interets;
+    }
+
+    public int getAnneNaissance() {
+        return anneNaissance;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getLangue() {
+        return langue;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
 }
