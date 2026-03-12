@@ -1,40 +1,41 @@
 package universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.dtos;
+import universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.enums.LangueEnum;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class JoueurDTO {
-    private String prenom, pseudo,interets;
-    private enum langue;
-    private int anneNaissance, score;
+    private String prenom, pseudo;
+    private LangueEnum langue;
+    private int anneeNaissance, score;
+    private List<String> interets;
 
-    public JoueurDTO(String prenom, String pseudo, int langue, int anneNaissance, String interets) {
+    public JoueurDTO(String prenom, String pseudo, LangueEnum langue, int anneeNaissance, String interets) {
         this.prenom = prenom;
         this.pseudo = pseudo;
         this.langue = langue;
-        this.anneNaissance = anneNaissance;
-        this.interets = interets;
+        this.anneeNaissance = anneeNaissance;
         this.score = 0;
+        this.interets = Arrays.stream(interets.split(","))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 
-    public String getPseudo() {
-        return pseudo;
-    }
+    public String getPseudo() { return pseudo; }
 
-    public String getInterets() {
-        return interets;
-    }
+    public String getPrenom() { return prenom; }
 
-    public int getAnneNaissance() {
-        return anneNaissance;
-    }
+    public LangueEnum getLangue() { return langue; }
 
-    public int getScore() {
-        return score;
-    }
+    public int getAnneeNaissance() { return anneeNaissance; }
 
-    public int getLangue() {
-        return langue;
-    }
+    public int getScore() { return score; }
 
-    public String getPrenom() {
-        return prenom;
+    public List<String> getInterets() { return interets; }
+
+
+    public boolean aCommeInteret(String interet) {
+        return interets.stream().anyMatch(i -> i.equalsIgnoreCase(interet));
     }
 }
