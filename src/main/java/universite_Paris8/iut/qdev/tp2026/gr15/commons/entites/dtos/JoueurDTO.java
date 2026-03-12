@@ -1,8 +1,9 @@
-package universite_Paris8.iut.qdev.tp2026.gr15.commons.dtos.entites;
+package universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.dtos;
 
 public class JoueurDTO {
     private String prenom, pseudo,interets;
-    private int langue,anneNaissance, score;
+    private enum langue;
+    private int anneNaissance, score;
 
     public JoueurDTO(String prenom, String pseudo, int langue, int anneNaissance, String interets) {
         this.prenom = prenom;

@@ -1,6 +1,6 @@
 package universite_Paris8.iut.qdev.tp2026.gr15.interfaces;
 
-import universite_Paris8.iut.qdev.tp2026.gr15.commons.dtos.entites.JoueurDTO;
+import universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.dtos.JoueurDTO;
 
 import java.util.ArrayList;
 
