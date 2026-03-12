@@ -11,15 +11,13 @@ public class JoueurDTO {
     private int anneeNaissance, score;
     private List<String> interets;
 
-    public JoueurDTO(String prenom, String pseudo, LangueEnum langue, int anneeNaissance, String interets) {
+    public JoueurDTO(String prenom, String pseudo, LangueEnum langue, int anneeNaissance, List<String> interets) {
         this.prenom = prenom;
         this.pseudo = pseudo;
         this.langue = langue;
         this.anneeNaissance = anneeNaissance;
         this.score = 0;
-        this.interets = Arrays.stream(interets.split(","))
-                .map(String::trim)
-                .collect(Collectors.toList());
+        this.interets = interets;
     }
 
     public String getPseudo() { return pseudo; }

@@ -24,6 +24,15 @@ public enum LangueEnum {
         throw new LangueException();
     }
 
+    public static LangueEnum fromNom(String nom) throws LangueException{
+        for (LangueEnum langue : values()) {
+            if (langue.nom.equalsIgnoreCase(nom)) {
+                return langue;
+            }
+        }
+        throw new LangueException();
+    }
+
     public String getNom() {
         return this.nom;
     }
