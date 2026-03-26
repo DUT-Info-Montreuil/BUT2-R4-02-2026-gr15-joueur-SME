@@ -1,13 +1,12 @@
 package mocks;
 
 import universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.dtos.JoueurDTO;
-import universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.enums.LangueEnum;
 import universite_Paris8.iut.qdev.tp2026.gr15.interfaces.IservicesJoueur;
 import universite_Paris8.iut.qdev.tp2026.gr15.utils.exceptions.*;
 
 import java.util.ArrayList;
 
-public class AjouterJoueurKOprenomnull implements IservicesJoueur {
+public class AjouterJoueurKOprenomnullMock implements IservicesJoueur {
 
 
     @Override
