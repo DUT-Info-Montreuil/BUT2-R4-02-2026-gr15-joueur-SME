@@ -1,12 +1,10 @@
-package universite_Paris8.iut.qdev.tp2026.gr15.interfaces;
+package universite_Paris8.iut.qdev.tp2026.gr15.service.interfaces;
 
 
 import universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.dtos.JoueurDTO;
 import universite_Paris8.iut.qdev.tp2026.gr15.utils.exceptions.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public interface IservicesJoueur {
     void creerJoueur(String prenom, String login, int anneeNaissance, int langue, String interets) throws PrenomInvalideException,
@@ -21,7 +19,7 @@ public interface IservicesJoueur {
 
     public ArrayList<JoueurDTO> fournirClassement() throws PasdeJoueursException;
     public int conulterScore(String login) throws JoueurInconnuException;
-    public void supprimerJoueur(String login) throws JoueurInconnuException;
+    public boolean supprimerJoueur(String login) throws JoueurInconnuException;
 
 
 }
