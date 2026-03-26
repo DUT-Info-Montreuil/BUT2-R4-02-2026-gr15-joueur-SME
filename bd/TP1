@@ -1,0 +1,108 @@
+EXERCICE 1
+1. On utilise db["collection"].insertOne({ document })
+
+2. Avec find, l'id est automatiquement créé et ajouté aux utilisateurs.
+
+3.
+db.utilisateurs.insertOne({
+	nom: "lelant",
+	prenom: "louise",
+	email: "louise.lelant@email.com",
+    	dateInscription: new Date("2024-11-01"),
+    	age: 20,
+    	ville: "Paris",
+    	interets: ["photographie", "voyage", "cuisine"],
+    	amis: [],
+    	posts: []
+})
+
+4.
+db.utilisateurs.insertMany([
+	{
+	_id: 1,
+	nom: "cc",
+    	},
+    	{
+	_id: 1,
+	nom: "mm",
+    	},
+    	{
+	_id: 2,
+	nom: "zz",
+    	}
+	
+])
+Il n'y a que le premier document qui a été inséré. On peut voir qu'il n'y a eu qu'un seul insert, et la requête s'arrête quand un id identique au premier est trouvé.
+
+5.
+db.utilisateurs.insertMany([
+  {
+    _id: 3,
+    nom: "D",
+  },
+  {
+    _id: 3,
+    nom: "B",
+  },
+  {
+    _id: 4,
+    nom: "A",
+  },
+  ],{ordered: false}) 
+Maintenant, on peut voir qu'il y a eu deux insert, le premier est inséré, le deuxième ne l'est pas à cause de son id identique, et le troisième est inséré. La requête ne s'arrête pas à l'erreur contrairement au précédent.
+
+6.db.utilisateurs.drop()
+db.dropDatabase()
+
+7.load('Téléchargements/TP1_inputs')
+
+EXERCICE 2
+1. db.utilisateurs.updateOne({nom: "Chen"},{$set: {nom: "CHEN"}})
+
+2. db.utilisateurs.updateMany({}, {$rename: {email: "mail"}})
+
+3. db.utilisateurs.updateMany({ville : "Paris"}, {$set: {actif : true}})
+
+EXERCICE 3
+1. db.utilisateurs.deleteOne({nom: "Müller", prenom: "Hans"})
+
+2. db.utilisateurs.deleteMany({profession: "Artiste"})
+
+EXERCICE 4
+1. db.utilisateurs.find({nom:{$regex:/^c/i}})
+
+2. db.utilisateurs.find({nom:{$regex:/^[c/a]/i}})
+
+3. db.utilisateurs.find({nom:{$regex:/^c/i}, ville: "Lyon"})
+
+EXERCICE 5
+1. db.utilisateurs.find({enfants:{$exists:true}})
+
+2. db.utilisateurs.find({enfants:{$exists:true}}, {nom: 1})
+
+EXERCICE 6
+1. db.utilisateurs.find({ville: "Bordeaux"})
+
+2. db.utilisateurs.find({age:{$lte:40,$gte:20}}, {nom: 1})
+
+3. db.utilisateurs.find({ville:{$nin:["Bordeaux", "Paris"]}})
+
+EXERCICE 7
+1. db.utilisateurs.find({$and:[{nom: "Ahmed"}, {prenom: "Youssef"}]}, {interets: 1})
+
+2. db.utilisateurs.find({interets:{$in:["photographie"]}}, {interets: 1})
+
+3. db.utilisateurs.find({interets:{$in: ["lecture", "cinema"]}})
+
+4. db.utilisateurs.find({interets:"jeux vidéo" })
+
+5. db.utilisateurs.find({interets:["jeux video"]})
+
+6. db.utilisateurs.find({interets:{$nin:["lecture"]}})
+
+
+
+
+
+
+
