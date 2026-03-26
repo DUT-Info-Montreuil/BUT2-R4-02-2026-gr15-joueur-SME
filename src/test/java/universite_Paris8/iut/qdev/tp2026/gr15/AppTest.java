@@ -1,8 +1,11 @@
 package universite_Paris8.iut.qdev.tp2026.gr15;
 import mocks.*;
 import org.junit.jupiter.api.Test;
+import universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.dtos.JoueurDTO;
 import universite_Paris8.iut.qdev.tp2026.gr15.interfaces.IservicesJoueur;
 import universite_Paris8.iut.qdev.tp2026.gr15.utils.exceptions.*;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -80,6 +83,22 @@ public class AppTest {
         IservicesJoueur serviceJoueur = new AjouterJoueurKOcentreInvalideMock();
         assertThrows(CentresInteretsInvalideException.class, () ->
                 serviceJoueur.creerJoueur("Alice", "alice99", 2000, 1, "")
+        );
+    }
+
+    @Test
+    public void listerJoueurs_joueursExistants_retourneListe() throws PasdeJoueursException {
+        IservicesJoueur serviceJoueur = new ListerJoueursOKImplMock();
+        ArrayList<JoueurDTO> result = serviceJoueur.listerJoueurs();
+        assertNotNull(result);
+        assertFalse(result.isEmpty());
+    }
+
+    @Test
+    public void listerJoueurs_aucunJoueur_levePasDeJoueursException() {
+        IservicesJoueur serviceJoueur = new ListerJoueursKOImplMock();
+        assertThrows(PasdeJoueursException.class, () ->
+                serviceJoueur.listerJoueurs()
         );
     }
 
