@@ -1,5 +1,6 @@
 package universite_Paris8.iut.qdev.tp2026.gr15.interfaces;
 
+
 import universite_Paris8.iut.qdev.tp2026.gr15.commons.entites.dtos.JoueurDTO;
 import universite_Paris8.iut.qdev.tp2026.gr15.utils.exceptions.*;
 
@@ -15,7 +16,6 @@ public interface IservicesJoueur {
             LangueException,
             CentresInteretsInvalideException;
 
-//            Arrays.stream(interets.split(",")).map(String::trim).collect(Collectors.toList()); integrer dans implémentation
     public ArrayList<JoueurDTO> listerJoueurs() throws PasdeJoueursException;
 
 
